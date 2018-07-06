@@ -8,7 +8,7 @@ def index(request, platform, btag):
     print(btag)
     platform = 'pc'
     btag = 'Valkia-2299'
-    profile_url = 'https://playoverwatch.com/pl-pl/career/%s/%s'(platform, btag)
+    profile_url = 'https://playoverwatch.com/pl-pl/career/' + platform + '/' + btag
     page = urllib.request.urlopen(profile_url)
     soup = BeautifulSoup(page, 'html.parser')
 
