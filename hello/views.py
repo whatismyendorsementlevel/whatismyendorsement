@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-import urllib2
+import urllib
 from bs4 import BeautifulSoup
 
 from .models import Greeting
@@ -8,7 +8,7 @@ from .models import Greeting
 # Create your views here.
 def index(request):
 
-    page = urllib2.urlopen('https://playoverwatch.com/pl-pl/career/pc/Artysta-2221')
+    page = urllib.request('https://playoverwatch.com/pl-pl/career/pc/Artysta-2221')
     soup = BeautifulSoup(page, 'html.parser')
     total = soup.find('svg', attrs={'class':'EndorsementIcon-border--shotcaller'})['data-total']
     shootcaller = soup.find('svg', attrs={'class':'EndorsementIcon-border--shotcaller'})['data-value']
