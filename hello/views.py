@@ -5,10 +5,16 @@ from bs4 import BeautifulSoup
 def index(request, platform, btag):
 
     # validate platform, return 404 when 404, css, obecne przewitywane progi
-    soup = BeautifulSoup(urllib.request.urlopen('https://playoverwatch.com/pl-pl/career/' + platform + '/' + btag), 'html.parser')
+    urlopen = urllib.request.urlopen('https://playoverwatch.com/pl-pl/career/' + platform + '/' + btag)
+    soup = BeautifulSoup(urlopen, 'html.parser')
 
-    total = soup.find('svg', attrs={'class':'EndorsementIcon-border--shotcaller'})['data-total']
+
+    isOK = soup.find('div', attrs={'class':'u-center'})
+    if isOK is None:
+        return render(request, '404.html')
+
     level = soup.find('div', attrs={'class':'u-center'}).text
+    total = soup.find('svg', attrs={'class':'EndorsementIcon-border--shotcaller'})['data-total']
     shootcaller = soup.find('svg', attrs={'class':'EndorsementIcon-border--shotcaller'})['data-value']
     teammate = soup.find('svg', attrs={'class':'EndorsementIcon-border--teammate'})['data-value']
     sportsmanship = soup.find('svg', attrs={'class':'EndorsementIcon-border--sportsmanship'})['data-value']
