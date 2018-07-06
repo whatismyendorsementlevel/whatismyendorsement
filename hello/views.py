@@ -4,13 +4,8 @@ from bs4 import BeautifulSoup
 
 def index(request, platform, btag):
 
-    print(platform)
-    print(btag)
-    platform = 'pc'
-    btag = 'Valkia-2299'
-    profile_url = 'https://playoverwatch.com/pl-pl/career/' + platform + '/' + btag
-    page = urllib.request.urlopen(profile_url)
-    soup = BeautifulSoup(page, 'html.parser')
+    # validate platform, return 404 when 404, css
+    soup = BeautifulSoup(urllib.request.urlopen('https://playoverwatch.com/pl-pl/career/' + platform + '/' + btag), 'html.parser')
 
     total = soup.find('svg', attrs={'class':'EndorsementIcon-border--shotcaller'})['data-total']
     shootcaller = soup.find('svg', attrs={'class':'EndorsementIcon-border--shotcaller'})['data-value']
