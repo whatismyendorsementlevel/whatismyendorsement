@@ -35,3 +35,7 @@ class Endorsement(object):
         self.shootcaller = shootcaller
         self.sportsmanship = sportsmanship
         self.teammate = teammate
+
+def notFound(request):
+    return render(request, '404.html')
+
