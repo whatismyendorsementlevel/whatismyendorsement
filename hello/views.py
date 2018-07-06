@@ -16,9 +16,9 @@ def index(request):
     sportsmanship = soup.find('svg', attrs={'class':'EndorsementIcon-border--sportsmanship'})['data-value']
 
     endorsement = Endorsement(total, shootcaller, teammate, sportsmanship)
-    print(endorsement)
-    # return HttpResponse(endorsement)
-    return render(endorsement, 'db.html')
+    print("print")
+    return HttpResponse(endorsement)
+    # return render(endorsement, 'db.html')
 
 
 
