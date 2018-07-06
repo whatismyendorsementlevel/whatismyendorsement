@@ -2,9 +2,14 @@ from django.shortcuts import render
 import urllib.request
 from bs4 import BeautifulSoup
 
-def index(request):
+def index(request, platform, btag):
 
-    page = urllib.request.urlopen('https://playoverwatch.com/pl-pl/career/pc/Artysta-2221')
+    print(platform)
+    print(btag)
+    platform = 'pc'
+    btag = 'Valkia-2299'
+    profile_url = 'https://playoverwatch.com/pl-pl/career/%s/%s'(platform, btag)
+    page = urllib.request.urlopen(profile_url)
     soup = BeautifulSoup(page, 'html.parser')
 
     total = soup.find('svg', attrs={'class':'EndorsementIcon-border--shotcaller'})['data-total']
