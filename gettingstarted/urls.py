@@ -10,4 +10,6 @@ import hello.views
 urlpatterns = [
     path('<platform>/<btag>', hello.views.index, name='index'),
     # url(r'^.*$', hello.views.notFound, name='notFound'),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
+
+urlpatterns += staticfiles_urlpatterns()
