@@ -12,5 +12,5 @@ import hello.views
 
 urlpatterns = [
     url(r'^$', hello.views.index, name='index'),
-    url(r'^/platform/btag$', hello.views.index, name='index'),
+    url(r'(?P<platform>\w+)_(?P<btag>\w+)/$', hello.views.index, name='index')
 ]

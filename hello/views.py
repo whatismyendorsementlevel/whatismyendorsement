@@ -6,6 +6,7 @@ def index(request):
 
     page = urllib.request.urlopen('https://playoverwatch.com/pl-pl/career/pc/Artysta-2221')
     soup = BeautifulSoup(page, 'html.parser')
+
     total = soup.find('svg', attrs={'class':'EndorsementIcon-border--shotcaller'})['data-total']
     shootcaller = soup.find('svg', attrs={'class':'EndorsementIcon-border--shotcaller'})['data-value']
     teammate = soup.find('svg', attrs={'class':'EndorsementIcon-border--teammate'})['data-value']
