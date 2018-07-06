@@ -15,8 +15,9 @@ def index(request):
     teammate = soup.find('svg', attrs={'class':'EndorsementIcon-border--teammate'})['data-value']
     sportsmanship = soup.find('svg', attrs={'class':'EndorsementIcon-border--sportsmanship'})['data-value']
 
-    print(total)
-    return HttpResponse(total)
+    endorsement = Endorsement(total, shootcaller, teammate, sportsmanship)
+    print(endorsement)
+    return HttpResponse(endorsement)
     # print 'total endorsement is: ' + total
     # print 'shootcaller endorsement is: ' + shootcaller
     # print 'teammate endorsement is: ' + teammate
@@ -24,6 +25,19 @@ def index(request):
     # return HttpResponse('Hello from Python!')
     # return render(request, 'index.html')
 
+
+
+class Endorsement(object):
+    total = 0
+    shootcaller = 0
+    sportsmanship = 0
+    teammate = 0
+
+    def __init__(self, total, shootcaller, sportsmanship, teammate):
+        self.total = total
+        self.shootcaller = shootcaller
+        self.sportsmanship = sportsmanship
+        self.teammate = teammate
 
 def db(request):
 
