@@ -17,13 +17,8 @@ def index(request):
 
     endorsement = Endorsement(total, shootcaller, teammate, sportsmanship)
     print(endorsement)
-    return HttpResponse(endorsement)
-    # print 'total endorsement is: ' + total
-    # print 'shootcaller endorsement is: ' + shootcaller
-    # print 'teammate endorsement is: ' + teammate
-    # print 'sportsmanship endorsement is: ' + sportsmanship
-    # return HttpResponse('Hello from Python!')
-    # return render(request, 'index.html')
+    # return HttpResponse(endorsement)
+    return render(endorsement, 'db.html')
 
 
 
