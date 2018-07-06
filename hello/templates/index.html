@@ -1,19 +1,18 @@
 
 <html>
 <head>
-    <title>Endorsement</title>
+    <title>What is my endorsement level?</title>
 </head>
 <body>
 
-<h2>Page View Report</h2>
+<h2>Your endorsement information:</h2>
 
-<p>{{ endorsement.total }}</p>
-<p>{{ endorsement.shootcaller }}</p>
-<p>{{ endorsement.sportsmanship }}</p>
-<p>{{ endorsement.teammate }}</p>
-<p> {{ request }}</p>
-{{ platform }}
-{{ btag }}
+<p>Your endorsement level is: {{ endorsement.level }}</p>
+
+<p>Your total endorsement is: {{ endorsement.total }}</p>
+<p>Your shootcaller endorsement is: {{ endorsement.shootcaller }}</p>
+<p>Your sportsmanship endorsement is: {{ endorsement.sportsmanship }}</p>
+<p>Your teammate endorsement is: {{ endorsement.teammate }}</p>
 </body>
 
 </html>
