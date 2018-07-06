@@ -7,6 +7,7 @@ def index(request, platform, btag):
     # css,
     #  check Makkukurīmī#1513 btag
     # 500 if no endorce at all
+    # accept btags with hash
 
     if platform not in ['pc', 'psn', 'xbl']:
         return notFound(request)
@@ -21,14 +22,43 @@ def index(request, platform, btag):
         return render(request, '404.html')
 
     level = soup.find('div', attrs={'class':'u-center'}).text
-    total = soup.find('svg', attrs={'class':'EndorsementIcon-border--shotcaller'})['data-total']
-    shotcaller = soup.find('svg', attrs={'class':'EndorsementIcon-border--shotcaller'})['data-value']
-    teammate = soup.find('svg', attrs={'class':'EndorsementIcon-border--teammate'})['data-value']
-    sportsmanship = soup.find('svg', attrs={'class':'EndorsementIcon-border--sportsmanship'})['data-value']
+    total = getTotal(soup)
+    shotcaller = getShotcaller(soup)
+    teammate = getTeammate(soup)
+    sportsmanship = getSportsmanship(soup)
 
     endorsement = Endorsement(total, level, shotcaller, sportsmanship, teammate)
 
     return render(request, 'index.html', {'endorsement': endorsement})
+
+
+def getTotal(soup):
+    total = soup.find('svg', attrs={'class':'EndorsementIcon-border--shotcaller'})
+    if total is None:
+        return 0
+    else:
+        return total['data-total']
+
+def getShotcaller(soup):
+    total = soup.find('svg', attrs={'class':'EndorsementIcon-border--shotcaller'})
+    if total is None:
+        return 0
+    else:
+        return total['data-value']
+
+def getTeammate(soup):
+    total = soup.find('svg', attrs={'class':'EndorsementIcon-border--teammate'})
+    if total is None:
+        return 0
+    else:
+        return total['data-value']
+        
+def getSportsmanship(soup):
+    total = soup.find('svg', attrs={'class':'EndorsementIcon-border--sportsmanship'})
+    if total is None:
+        return 0
+    else:
+        return total['data-value']
 
 class Endorsement(object):
     total = 0
