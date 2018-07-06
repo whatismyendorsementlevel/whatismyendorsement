@@ -8,7 +8,7 @@ def index(request, platform, btag):
     soup = BeautifulSoup(urllib.request.urlopen('https://playoverwatch.com/pl-pl/career/' + platform + '/' + btag), 'html.parser')
 
     total = soup.find('svg', attrs={'class':'EndorsementIcon-border--shotcaller'})['data-total']
-    level = soup.find('div', attrs={'class':'u-center'})
+    level = soup.find('div', attrs={'class':'u-center'}).text
     shootcaller = soup.find('svg', attrs={'class':'EndorsementIcon-border--shotcaller'})['data-value']
     teammate = soup.find('svg', attrs={'class':'EndorsementIcon-border--teammate'})['data-value']
     sportsmanship = soup.find('svg', attrs={'class':'EndorsementIcon-border--sportsmanship'})['data-value']
