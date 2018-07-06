@@ -26,7 +26,7 @@ def index(request, platform, btag):
     teammate = soup.find('svg', attrs={'class':'EndorsementIcon-border--teammate'})['data-value']
     sportsmanship = soup.find('svg', attrs={'class':'EndorsementIcon-border--sportsmanship'})['data-value']
 
-    endorsement = Endorsement(total, level, shootcaller, sportsmanship, teammate)
+    endorsement = Endorsement(total, level, shotcaller, sportsmanship, teammate)
 
     return render(request, 'index.html', {'endorsement': endorsement})
 
