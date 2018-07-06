@@ -11,7 +11,7 @@ import hello.views
 # url(r'^blog/', include('blog.urls')),
 
 urlpatterns = [
-    path('/<string:platform>/<string:btag>, hello.views.index')
+    path('/<string:platform>/<string:btag>', hello.views.index, name='index')
     # url(r'^$', hello.views.index, name='index'),
     # url(r'(?P<platform>\w+)(?P<btag>\w+)/$', hello.views.index, name='index')
 ]
