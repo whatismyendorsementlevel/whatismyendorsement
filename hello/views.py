@@ -4,8 +4,15 @@ from bs4 import BeautifulSoup
 
 def index(request, platform, btag):
 
-    # validate platform, return 404 when 404, css, obecne przewitywane progi
+    # css,
+    #  check Makkukurīmī#1513 btag
+    # 500 if no endorce at all
+
+    if platform not in ['pc', 'psn', 'xbl']:
+        return notFound(request)
+
     urlopen = urllib.request.urlopen('https://playoverwatch.com/pl-pl/career/' + platform + '/' + btag)
+
     soup = BeautifulSoup(urlopen, 'html.parser')
 
 
@@ -15,27 +22,27 @@ def index(request, platform, btag):
 
     level = soup.find('div', attrs={'class':'u-center'}).text
     total = soup.find('svg', attrs={'class':'EndorsementIcon-border--shotcaller'})['data-total']
-    shootcaller = soup.find('svg', attrs={'class':'EndorsementIcon-border--shotcaller'})['data-value']
+    shotcaller = soup.find('svg', attrs={'class':'EndorsementIcon-border--shotcaller'})['data-value']
     teammate = soup.find('svg', attrs={'class':'EndorsementIcon-border--teammate'})['data-value']
     sportsmanship = soup.find('svg', attrs={'class':'EndorsementIcon-border--sportsmanship'})['data-value']
 
     endorsement = Endorsement(total, level, shootcaller, sportsmanship, teammate)
+
     return render(request, 'index.html', {'endorsement': endorsement})
 
 class Endorsement(object):
     total = 0
     level = 0
-    shootcaller = 0
+    shotcaller = 0
     sportsmanship = 0
     teammate = 0
 
-    def __init__(self, total, level, shootcaller, sportsmanship, teammate):
+    def __init__(self, total, level, shotcaller, sportsmanship, teammate):
         self.total = total
         self.level = level
-        self.shootcaller = shootcaller
+        self.shotcaller = shotcaller
         self.sportsmanship = sportsmanship
         self.teammate = teammate
 
 def notFound(request):
     return render(request, '404.html')
-

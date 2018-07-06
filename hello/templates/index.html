@@ -2,19 +2,33 @@
 <html>
 <head>
     <title>What is my endorsement level?</title>
-    <link rel="stylesheet" type="text/css" href="../../gettingstarted/static/mystyle.css">
+    <link rel="stylesheet" type="text/css" href="../../staticfiles/mystyle.css">
 </head>
 <body>
 <div class="header">
     <h2>Your endorsement information:</h2>
 </div>
 <div class="infos">
-    <p class="level">Your endorsement level is: {{ endorsement.level }}</p>
+    <p class="level" >Your endorsement level is: {{ endorsement.level }}</p>
 
     <p class="total">Your total endorsement is: {{ endorsement.total }}</p>
-    <p class="shootcaller">Your shootcaller endorsement is: {{ endorsement.shootcaller }}</p>
+    <p class="shotcaller">Your shotcaller endorsement is: {{ endorsement.shotcaller }}</p>
     <p class="sportsmanship">Your sportsmanship endorsement is: {{ endorsement.sportsmanship }}</p>
     <p class="teammate">Your teammate endorsement is: {{ endorsement.teammate }}</p>
+</div>
+
+
+<div class="requiredLevels">
+  <p>It's still a bit mystery but possible requirements for endorsement levels are:</p>
+  <ul>
+    <li>30-40 for 2nd level</li>
+    <li>120-130 for 3rd level</li>
+    <li>300-350 for 4th level</li>
+    <li>1000 for 5th level</li>
+  </ul>
+  <p>Please report <a href="https://www.reddit.com/r/Overwatch/comments/8wle8t/so_i_made_a_site_where_you_can_check_your/">here</a> what is yout endorement level and how many endorcements do you recieved.</p>
+
+
 </div>
 </body>
 
