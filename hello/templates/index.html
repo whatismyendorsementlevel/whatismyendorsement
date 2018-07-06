@@ -7,7 +7,9 @@
 
 <h2>Page View Report</h2>
 
-
+{% for endors in endorsement %}
+    <li>{{ endors.when }}</li>
+{% endfor %}
 </body>
 
 </html>
