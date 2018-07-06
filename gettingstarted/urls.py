@@ -14,7 +14,6 @@ urlpatterns = [
     path('<platform>/<btag>', hello.views.index, name='index'),
     path('*', hello.views.notFound, name='notFound'),
     url(r'^$', hello.views.notFound, name='notFound'),
-    url(r'^*$', hello.views.notFound, name='notFound'),
     url(r'^/*$', hello.views.notFound, name='notFound'),
     url(r'*', hello.views.notFound, name='notFound'),
 ]
