@@ -12,7 +12,7 @@ def index(request):
     sportsmanship = soup.find('svg', attrs={'class':'EndorsementIcon-border--sportsmanship'})['data-value']
 
     endorsement = Endorsement(total, shootcaller, teammate, sportsmanship)
-    return render(request, 'index.html', {'endorsement': endorsement}, {'request': request})
+    return render(request, 'index.html', {'endorsement': endorsement}, {'request': request.build_absolute_uri()})
 
 class Endorsement(object):
     total = 0
