@@ -1,6 +1,7 @@
 from django.shortcuts import render
 import urllib.request
 from bs4 import BeautifulSoup
+from django.template.context import RequestContext
 
 def index(request, platform, btag):
 
@@ -20,7 +21,7 @@ def index(request, platform, btag):
     sportsmanship = soup.find('svg', attrs={'class':'EndorsementIcon-border--sportsmanship'})['data-value']
 
     endorsement = Endorsement(total, level, shootcaller, sportsmanship, teammate)
-    return render(request, 'index.html', {'endorsement': endorsement})
+    return render(request, 'index.html', {'endorsement': endorsement}, context_instance=RequestContext(request))
 
 class Endorsement(object):
     total = 0
