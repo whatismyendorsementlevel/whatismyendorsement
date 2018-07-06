@@ -8,7 +8,7 @@ from .models import Greeting
 # Create your views here.
 def index(request):
 
-    page = urllib.request('https://playoverwatch.com/pl-pl/career/pc/Artysta-2221')
+    page = urllib.urlopen('https://playoverwatch.com/pl-pl/career/pc/Artysta-2221')
     soup = BeautifulSoup(page, 'html.parser')
     total = soup.find('svg', attrs={'class':'EndorsementIcon-border--shotcaller'})['data-total']
     shootcaller = soup.find('svg', attrs={'class':'EndorsementIcon-border--shotcaller'})['data-value']
