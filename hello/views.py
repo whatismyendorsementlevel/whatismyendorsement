@@ -19,7 +19,7 @@ def index(request):
     print("print")
     # return HttpResponse(total)
     # return render(endorsement, 'db.html')
-    return render('index.html')
+    return render(request, 'index.html')
 
 
 
