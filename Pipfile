@@ -10,7 +10,7 @@ django = "*"
 gunicorn = "*"
 django-heroku = "*"
 urllib2 = "*"
-BeautifulSoup = "*"
+beautifulsoup4 = "*"
 
 
 [requires]
