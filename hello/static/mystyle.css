@@ -1,0 +1,20 @@
+html {
+    background-color: red;
+}
+
+.shotcaller {
+    color: #f19512
+}
+
+.teammate {
+    color: #c81af5
+}
+
+.sportsmanship {
+    color: #40ce44;
+}
+
+.bold {
+    color: black;
+    font-weight: bold;
+}
