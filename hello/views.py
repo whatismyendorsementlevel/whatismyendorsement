@@ -1,5 +1,4 @@
 #-*- coding: utf-8 -*-
-from django.utils.encoding import smart_str
 from django.shortcuts import render
 import urllib.request
 from bs4 import BeautifulSoup
@@ -10,10 +9,15 @@ def index(request, platform, btag):
     #  check Makkukurīmī#1513 btag
     # 500 if no endorce at all
     # accept btags with hash
+    # hi btag
 
     if platform not in ['pc', 'psn', 'xbl']:
         return notFound(request)
+# testing below
 
+# testing above
+
+    urlopen = urllib.request.urlopen('https://playoverwatch.com/pl-pl/career/' + platform + '/' + btag)
     person = Person(btag)
     soup = BeautifulSoup(urlopen, 'html.parser')
 
