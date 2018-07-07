@@ -11,15 +11,8 @@ def index(request, platform, btag):
     # 500 if no endorce at all
     # accept btags with hash
 
-
-
     if platform not in ['pc', 'psn', 'xbl']:
         return notFound(request)
-# testing below
-    person = Person(btag)
-    endorsement = Endorsement(1,1,1,1,1)
-    return render(request, 'index.html', {'endorsement': endorsement, 'person': person})
-# testing above
 
     person = Person(btag)
     soup = BeautifulSoup(urlopen, 'html.parser')
