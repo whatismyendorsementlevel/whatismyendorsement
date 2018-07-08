@@ -16,7 +16,7 @@ def index(request, platform, btag):
     if platform not in ['pc', 'psn', 'xbl']:
         return notFound(request)
 
-    urlopen = urllib.request.urlopen('https://playoverwatch.com/pl-pl/career/' + platform + '/' + btag)
+    urlopen = urllib.request.urlopen('http://playoverwatch.com/pl-pl/career/' + platform + '/' + btag)
     person = Person(btag)
     soup = BeautifulSoup(urlopen, 'html.parser')
 
