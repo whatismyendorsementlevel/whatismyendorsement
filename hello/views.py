@@ -5,15 +5,14 @@ from bs4 import BeautifulSoup
 
 def index(request, platform, btag):
 
-    # css,
     #  check Makkukurīmī#1513 btag
     # accept btags with hash
 
-# testing below
+    # testing below
     # person = Person(btag)
     # endorsement = Endorsement(1,1,1,1,1)
     # return render(request, 'index.html', {'endorsement': endorsement, 'person': person})
-# testing above
+    # testing above
     if platform not in ['pc', 'psn', 'xbl']:
         return notFound(request)
 
