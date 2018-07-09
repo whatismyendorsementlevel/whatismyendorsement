@@ -5,14 +5,11 @@ from bs4 import BeautifulSoup
 
 def index(request, platform, btag):
 
-    #  check Makkukurīmī#1513 btag
-    # accept btags with hash
+    # fix Makkukurīmī#1513 btag (non ascii character)
+    # accept btags with hash (minor)
+    # main page with select for platform and input for btag
+    # better rwd view
 
-    # testing below
-    # person = Person(btag)
-    # endorsement = Endorsement(1,1,1,1,1)
-    # return render(request, 'index.html', {'endorsement': endorsement, 'person': person})
-    # testing above
     if platform not in ['pc', 'psn', 'xbl']:
         return notFound(request)
 
