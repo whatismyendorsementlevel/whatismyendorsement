@@ -1,0 +1,140 @@
+{% load staticfiles %}
+
+<html>
+<head>
+  <title>What is my endorsement level?</title>
+
+  <style type="text/css">
+
+  body {
+    background-color: #B0BEC5;
+  }
+
+  p, ul, li, div {
+    line-height: normal;
+    font-family: Helvetica;
+    word-wrap: break-word;
+    list-style-type: none;
+  }
+
+  * {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  }
+
+  .level, .total {
+    font-weight: bold;
+  }
+  .shotcaller {
+    color: #f19512;
+    font-weight: bold;
+  }
+
+  .teammate {
+    color: #c81af5;
+    font-weight: bold;
+  }
+
+  .sportsmanship {
+    color: #40ce44;
+    font-weight: bold;
+  }
+
+  .bold {
+    color: black;
+    font-weight: bold;
+  }
+  .content {
+    width: 680px;
+    height: 550px;
+    background-color: #3E6990;
+
+    position:relative;
+    left:0; right:0;
+    top:0; bottom:0;
+    margin: 0 auto;
+
+    /*this to solve "the content will not be cut when the window is smaller than the content": */
+    max-width:100%;
+    max-height:100%;
+
+  }
+  .header {
+    max-width: 680px;
+    max-height: 60px;
+    position: absolute;
+    margin: 0 auto;
+    left:0; right:0;
+    top:0; bottom:0;
+    text-align: center;
+  }
+
+  .infos {
+    max-width: 410px;
+    height: 350px;
+    max-height: 350px;
+    position: absolute;
+    margin: 0 auto;
+    top: 50px;
+    left: 10px;
+    background-color: #D7DAE5;
+    padding: 10px;
+  }
+  .requirements {
+    max-width: 250px;
+    height: 350px;
+    max-height: 350px;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    background-color: #D7DAE5;
+    padding: 10px;
+  }
+
+  .footer {
+    max-width: 660px;
+    height: 100px;
+    max-height: 100px;
+    position: absolute;
+    background-color: #D7DAE5;
+    padding: 10px;
+    margin: 0 auto;
+    left:0; right:0;
+    bottom:10px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+  <div class="content">
+    <div class="header">
+      <h3>Your endorsement information:</h2>
+    </div>
+    <div class="infos">
+      <p class="level">Hi {{ person.btag }}, Your endorsement is: {{ endorsement.level }}</p>
+      <p class="total">Total endorsement count is: {{ endorsement.total }}</p>
+      <p class="shotcaller">Shotcaller level is: {{ endorsement.shotcaller }}</p>
+      <p class="sportsmanship">Sportsmanship level is: {{ endorsement.sportsmanship }}</p>
+      <p class="teammate">Teammate level is: {{ endorsement.teammate }}</p>
+    </div>
+
+
+     <div class="requirements">
+      <p>Possible requirements for endorsement levels are:</p>
+        <p>50-60 for 2nd level</p>
+        <p>200-250 for 3rd level</p>
+        <p>400+ for 4th level</p>
+        <p>1000+ for 5th level</p>
+      <p>Keep in mind that it's still kinda unknown how many endorsements you need for each level. Also your level may decrease due to inactivity, received reports or leaving matches.</p>
+      </div>
+
+      <div class="footer">
+        <p>Please report <a href="https://www.reddit.com/r/Overwatch/comments/8wle8t/so_i_made_a_site_where_you_can_check_your/">here</a> what is yout endorsement level and how many endorsements do you recieved.</p>
+        <p>Help us find out what are real requirements for each endorsement level. Thanks!</p>
+      </div>
+
+  </div>
+</body>
+
+</html>
